@@ -5,161 +5,42 @@ export function renderCard(listaEvents, container) {
   let listado = "";
 
   if (listaEvents.length === 0) {
-    listado = `lo sentimos no encontramos existencias`;
+    listado = `<h1>lo sentimos no encontramos existencias</h1>`;
   } else {
     listaEvents.forEach((propiedades) => {
       if (propiedades.disponibles >= 5) {
-        listado += `<div
-     style="
-    width:22% ;
-    margin: 1rem ; 
-    text-align: left;
-    border: #202020 solid 1px;
-    border-radius: 15px;    
-    display: flex;
-    flex-direction: column;
-justify-content: space-between;
-background-color: #063455;
-color: white;
-font-size: 17px;
-    ">
-    <img src="${propiedades.imagen}"
-     style="
-    object-fit: cover;
-    width: 100%;
-    height: 50%;
-    border-radius: 15px 15px 1px 1px;
-    border-bottom: black solid 2px;
-    " alt="${propiedades.producto}">
-      <div class="card-body" 
-      style="
-      padding: .6rem 2rem;">
-<h3 style=" 
-text-transform: capitalize;
-text-align: center;
-margin-bottom: 15px;
-" class="card-title">${propiedades.producto}</h3>
-      <p>${propiedades.descripcion.slice(0, 100)}...</p>
-      <p>Precio: ${propiedades.precio}</p>
-      </div>
-
-      <div
-      style="
-padding: .9rem 2rem;
-display: flex;
-justify-content: space-between;
-border-radius: 1px 1px 15px 15px;
-      "
-      >
-      <a 
-  style="
-border-radius: 10px;
-padding: .5rem 1rem;
-text-decoration: none;
-   background-color: #ffffff;
-color: black;
-
-  
-  "
-  href="./details.html?id=${propiedades._id}">Detalles </a>
-      <a 
-      style="
-      background-color: #10AEDB;
-       
-      text-decoration: none;
-border-radius: 10px;
-padding: .5rem 1rem;  
-color: black;
-
-      "
-      href="./details.html?id=${propiedades._id}">Buy </a>
-      </div>
-      </div>
-
+        listado += `
+  <div class="card">
+    <img src="${propiedades.imagen}" alt="${propiedades.producto}">
+    <div class="card-body">
+      <h3>${propiedades.producto}</h3>
+      <p>${propiedades.descripcion.slice(0, 150)}...</p>
+      <p class="precio" >Precio: ${propiedades.precio}</p>
+    </div>
+    <div class="card-boton">
+      <a href="./detalles.html?id=${propiedades._id}">Detalles </a>
+      <a class="compra" href="./detalles.html?id=${propiedades._id}">Comprar </a>
+    </div>
+  </div>
   `;
       } else {
-        listado += `<div
-        style="
-       width:22% ;
-       margin: 1rem ; 
-       text-align: left;
-       border: #202020 solid 1px;
-       border-radius: 15px;    
-       display: flex;
-       flex-direction: column;
-   justify-content: space-between;
-background-color: #063455;
-   color: white;
-   font-size: 17px;
-   
-       ">
-       <img src="${propiedades.imagen}"
-        style="
-       object-fit: cover;
-       width: 100%;
-       height: 50%;
-       border-radius: 15px 15px 1px 1px;
-       border-bottom: black solid 2px;
-       " alt="${propiedades.producto}">
-         <div class="card-body" 
-         style="
-         padding: .6rem 2rem;">
-         <a 
-         style="
-         background-color: #eb274b;
-         text-decoration: none;
-   border-radius: 10px;
-   padding: .5rem 1rem;  
-   color: black;
-   font-size: 12px;
-display: flex;
-align-self: flex-end;
-margin-bottom: .7rem;
-color: rgb(255, 255, 255);"
-         href="./details.html?id=${propiedades._id}"> ultimas unidades</a>
-   <h3 style=" 
-   text-transform: capitalize;
-   text-align: center;
-   margin-bottom: 15px;
-   ">${propiedades.producto}</h3>
-         <p>${propiedades.descripcion.slice(0, 100)}...</p>
-         <p>Precio: ${propiedades.precio}</p>
-         </div>
-   
-         <div
-         style="
-   
-   padding: .9rem 2rem;
-   display: flex;
-   justify-content: space-between;
-   border-radius: 1px 1px 15px 15px;
-         "
-         >
-         <a 
-     style="
-   border-radius: 10px;
-   padding: .5rem 1rem;
-   text-decoration: none;
-   background-color: #ffffff;
-   color: black;
-   
-     
-     "
-     href="./details.html?id=${propiedades._id}">Detalles </a>
-         <a 
-         style="
-         background-color: #10AEDB;
-         text-decoration: none;
-   border-radius: 10px;
-   padding: .5rem 1rem;  
-   color: black;
-   
-         "
-         href="./details.html?id=${propiedades._id}">Buy </a>
-         </div>
-         </div>
-   
-     `;
+        listado += `
+  <div class="card">
+    <img src="${propiedades.imagen}" alt="${propiedades.producto}">
+    <div class="card-body">
+      <h3>${propiedades.producto}</h3>
+      <p>${propiedades.descripcion.slice(0, 100)}...</p>
+      <p class="precio" >Precio: ${propiedades.precio}</p>
+    </div>
+    <div class="card-boton2">
+      <a class="ultimas" href="./detalles.html?id=${propiedades._id}"> ultimas unidades</a>
+      <div>
+        <a href="./detalles.html?id=${propiedades._id}">Detalles </a>
+        <a class="compra" href="./detalles.html?id=${propiedades._id}">Comprar </a>
+      </div>
+    </div>
+  </div>
+    `;
       }
     });
   }
@@ -178,4 +59,69 @@ export function buscador(lista, input) {
   return lista.filter((element) =>
     element.producto.toLowerCase().includes(input.toLowerCase())
   );
+}
+
+export function renderDetails(propiedades, containerDetails) {
+  containerDetails.innerHTML = `
+  <div
+    style="
+    width:80% ;
+    margin: 1rem ; 
+    text-align: left;
+    border: #202020 solid 1px;
+    border-radius: 15px;    
+    display: flex;
+justify-content: space-between;
+background-color: #063455;
+color: white;
+font-size: 17px;
+    ">
+    <img src="${propiedades.imagen}"
+    style="
+    object-fit: cover;
+    width: 50%;
+    border-radius: 15px;
+    " alt="${propiedades.producto}">
+    
+      <div class="card-body" 
+      style="
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+  align-self: center;
+  min-height: 70%;
+    padding: 2rem 2rem;">
+<h3 style=" 
+text-transform: capitalize;
+text-align: center;
+">${propiedades.producto}</h3>
+      <p>${propiedades.descripcion}</p>
+      <p>Precio: ${propiedades.precio}</p>
+
+      <div
+      style="
+padding: .9rem 2rem;
+display: flex;
+justify-content: space-between;
+border-radius: 1px 1px 15px 15px;
+      "
+      >
+      <a 
+      style="
+      background-color: #10AEDB;
+      text-decoration: none;
+border-radius: 10px;
+padding: .5rem 1rem;  
+color: black;
+width: 50%;
+text-align: center;
+
+      "
+      href="./detalles.html?id=${propiedades._id}">Comprar </a>
+      </div>
+
+      </div>
+      </div>
+
+  `;
 }

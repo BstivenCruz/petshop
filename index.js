@@ -3,6 +3,7 @@ import {
   filterCategoryFarmacia,
   buscador,
   filterCategoryJugueteria,
+  renderDetails
 } from "./modules/funciones.js";
 let card = document.getElementById("containerCard");
 let card2 = document.getElementById("containerCard");
@@ -24,12 +25,16 @@ fetch("https://mindhub-xj03.onrender.com/api/petshop")
     } else if (queryString === "/jugueteria.html") {
       let jugueteria = filterCategoryJugueteria(events);
       renderCard(jugueteria, card2);
+    } else{
+    const queryStringID = location.search;
+      const param = new URLSearchParams(queryStringID).get("id");
+      let everyEvent = events.find((item) => item._id == param);
+      renderDetails(everyEvent, card);
     }
   })
   .catch((err) => {
     console.log(err);
   });
-
 containerInput.addEventListener("input", (e) => {
   let valor = e.target.value;
   let farmacia = filterCategoryFarmacia(events);
