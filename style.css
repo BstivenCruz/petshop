@@ -24,9 +24,31 @@ header {
 .logo img {
   width: 100%;
 }
+#cerrar{
+  border: red solid;
+}
+.carrito {
+  border: rgb(0, 0, 0) solid 1px;
+  background-color: #e0e0e0;
+  width: 35%;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: #e0e0e0ce;
+  padding: 2rem;
+}
+.carrito1{
+  display: none;
+}
+
+.carrito ul{
+  padding: 2rem;
+}
+
 
 nav {
-  width: 40%;
+  width: 70%;
   display: flex;
   justify-content: space-between;
   background: none;
@@ -37,15 +59,15 @@ nav a {
   font-size: x-large;
   font-weight: bold;
   padding: 0.3rem;
-  border-radius: 5px;
+  margin-inline: 1rem;
 }
 nav a:hover {
   border-bottom: #ffffff solid 2px;
 }
 .active {
   border-bottom: #ffffff solid 2px;
-
 }
+
 main {
   display: flex;
   flex-direction: column;
@@ -68,11 +90,11 @@ main section {
 }
 .bienvenida {
   display: flex;
-  flex-direction: column;
   background: url("https://mobimg.b-cdn.net/v3/fetch/78/7836592cce4dabba36797335cbaa1726.jpeg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  justify-content: space-between;
 }
 
 .primer {
@@ -102,7 +124,7 @@ main section {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 5rem;
-  transition: .8s;
+  transition: 0.8s;
   font-size: 25px;
   height: 80vh;
 }
@@ -221,7 +243,7 @@ footer h2 {
   text-align: center;
   margin: 1rem;
 }
-.precio{
+.precio {
   margin: 10px;
   font-size: 20px;
   color: #e0e0e0;
@@ -255,19 +277,19 @@ footer h2 {
   color: black;
   text-align: center;
 }
-.ultimas{
-height: 50%;
-text-decoration: none;
-color: rgb(255, 0, 0);
-text-align: center;
-border-radius: 10px;
-font-size: 20px;
-text-transform: capitalize;
+.ultimas {
+  height: 50%;
+  text-decoration: none;
+  color: rgb(255, 0, 0);
+  text-align: center;
+  border-radius: 10px;
+  font-size: 20px;
+  text-transform: capitalize;
 }
-.compra{
-background-color: #ff5927 !important;
+.compra {
+  background-color: #ff5927 !important;
 }
-.card-boton2 div{
+.card-boton2 div {
   margin-top: 6px;
   display: flex;
   justify-content: space-between;

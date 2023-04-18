@@ -3,7 +3,6 @@
 export function renderCard(listaEvents, container) {
   container.innerHTML = "";
   let listado = "";
-
   if (listaEvents.length === 0) {
     listado = `<h1>lo sentimos no encontramos existencias</h1>`;
   } else {
@@ -52,7 +51,9 @@ export function filterCategoryFarmacia(lista) {
 }
 
 export function filterCategoryJugueteria(lista) {
-  return lista.filter((element) => element.categoria === "jugueteria");
+  let x = lista.filter((element) => element.categoria === "jugueteria");
+  return x
+  
 }
 
 export function buscador(lista, input) {
